@@ -1,0 +1,11 @@
+# Ignore datasets
+data/
+
+# Ignore jupyter checkpoints
+.ipynb_checkpoints/
+
+# Ignore vscode files
+.vscode/
+
+# Ignore cached files
+__pycache__/
