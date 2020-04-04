@@ -1,5 +1,7 @@
 from flask import Flask,render_template,jsonify,request,abort,Response
 from flask_cors import CORS
+from PIL import Image
+from flask import send_file
 import ast
 import json
 import pprint
@@ -53,6 +55,27 @@ def sendRecommendation(topic):
     # # output = subprocess.check_output(['model.py',topic])
     # # print(output)
     # # return "lol"
+
+@app.route("/getHistogram/year", methods=["GET"])
+def sendYearHistogram():
+    #img = Image.open("year.png")
+    # print(img)
+    # url = "C:/Users/harik/OneDrive/Desktop/Vue2/wt/backend/paper-analytica"
+    
+    # return Response(url, mimetype='text/html')
+    # return Response(img, mimetype='image/png')
+    return send_file("year.png", mimetype='image/png')
+
+@app.route("/getHistogram/author", methods=["GET"])
+def sendAuthorHistogram():
+    #img = Image.open("year.png")
+    # print(img)
+    # url = "C:/Users/harik/OneDrive/Desktop/Vue2/wt/backend/paper-analytica"
+    
+    # return Response(url, mimetype='text/html')
+    # return Response(img, mimetype='image/png')
+    return send_file("author.png", mimetype='image/png')
+
 
 
 if __name__=="__main__":

@@ -65,7 +65,7 @@ def get_related_topic(query, nmf_model, tfidf_model, topic_dict, num_top_words=1
     return query_topic, topic_dict[query_topic]
 
 
-def plot_count_dict(cdict, title, sort='key'):
+def plot_count_dict1(cdict, title, sort='key'):
     if sort == 'key':
         items = cdict.items()
         items = sorted(items, key=lambda x: x[0])
@@ -77,9 +77,29 @@ def plot_count_dict(cdict, title, sort='key'):
 
     labels = [i[0] for i in items]
     counts = [i[1] for i in items]
-    plt.barh(labels, counts)
     plt.title(title)
-    plt.show()
+    plt.barh(labels, counts)
+    plt.savefig("year.png")
+    plt.clf()
+    #plt.show()
+
+def plot_count_dict2(cdict, title, sort='key'):
+    if sort == 'key':
+        items = cdict.items()
+        items = sorted(items, key=lambda x: x[0])
+    elif sort == 'value':
+        items = cdict.items()
+        items = sorted(items, key=lambda x: x[1])
+    else:
+        raise ValueError("sort takes either 'key' or 'value'")
+
+    labels = [i[0].split(" ")[0] for i in items]
+    counts = [i[1] for i in items]
+    plt.title(title)
+    plt.barh(labels, counts)
+    plt.savefig("author.png")
+    plt.clf()
+    #plt.show()
 
 
 def get_papers_per_year(data_dir, data, topic_no):
@@ -157,7 +177,8 @@ def model(search_query, data_dir="./data/"):
         # temp=ast.literal_eval(l[2])
         # print(temp[1],type(temp[1]))
         #justNames.append(json.loads(l[1]))
-
+    print(justNames)
+    
     with open('recommendation.json','w') as outfile:
         json.dump(justNames,outfile)
 
@@ -167,14 +188,14 @@ def model(search_query, data_dir="./data/"):
    
     
 
-    # per_year_count = get_papers_per_year(data_dir, data, topic_no)
-    # plot_count_dict(
-    #     per_year_count, "Papers published related to the topic per year")
+    per_year_count = get_papers_per_year(data_dir, data, topic_no)
+    plot_count_dict1(
+        per_year_count, "Papers published related to the topic per year")
 
-    # auth_count = top_authors(data_dir, data, topic_no)
-    # plot_count_dict(dict(auth_count.most_common(10)),
-    #                 "Top authors and number of papers",
-    #                 "value")
+    auth_count = top_authors(data_dir, data, topic_no)
+    plot_count_dict2(dict(auth_count.most_common(10)),
+                    "Top authors and number of papers",
+                    "value")
 
 
 if __name__ == "__main__":
