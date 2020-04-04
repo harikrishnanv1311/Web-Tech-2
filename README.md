@@ -26,3 +26,6 @@ second histogram shows the "Top author and number of papers".
 We use submission throttling to fetch the results after the user types any character. The request goes to the server which uses RESTful API
 through Flask to get the results and return it back to the Browser(Client).
 <br>
+
+### Demonstration Examples can be found in the "demo" directory.
+## Or click here -> https://github.com/harikrishnanv1311/Web-Tech-2/tree/master/demo
