@@ -9,7 +9,7 @@
     </section>
     <section class="section">
       <div class="container" style="text-align:center;">
-        <form v-on:keyup.prevent="fetchData" class="form-group">
+        <form v-on:keyup.prevent="fetchData" v-on:click.prevent="fetchData" class="form-group">
           <h4 class="jumbotron display-4">Enter the Topic of Papers To Be Recommended!</h4>
           <input id="forWidth" type="text" style="margin:5px; padding:5px;text-align:center;" placeholder="Type Here!" v-model="rec"><br>
           <br>
@@ -21,7 +21,8 @@
                     <div class="card-body">
                       <h1 class="card-title"><b>{{p.name}}</b></h1>
                       <h6 class="card-subtitle mb-2 text-muted">{{p.author}}</h6>
-                      <p class="card-text">HTML: <a v-bind:href="p.link_html">{{p.link_html}}</a><br>PDF: <a v-bind:href="p.link_pdf">{{p.link_pdf}}</a></p> 
+                      <p class="card-text"><a class="btn btn-secondary space" v-bind:href="p.link_html">HTML</a> | <a class="btn btn-secondary space"  v-bind:href="p.link_pdf">PDF</a></p>
+                      <!-- <p class="card-text">HTML: <a v-bind:href="p.link_html">{{p.link_html}}</a><br>PDF: <a v-bind:href="p.link_pdf">{{p.link_pdf}}</a></p>  -->
                     </div>
                   </div>
                 </div>
@@ -172,5 +173,15 @@ export default {
   height: 50px;
   border-radius:15px;
 }
+
+.space{
+  width: 80px;
+  padding:5px;
+  margin:10px;
+}
+
+/* a:hover{
+  background-color: #000;
+} */
 
 </style>
