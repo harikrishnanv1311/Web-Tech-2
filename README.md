@@ -28,9 +28,8 @@ through Flask to get the results and return it back to the Browser(Client).
 <br>
 
 ### Demonstration examples can be found in the "demo" directory.
-#### &nbsp;&nbsp; Or click here -> https://github.com/harikrishnanv1311/Web-Tech-2/tree/master/demo
+#### &nbsp;&nbsp; Or click here -> [Demo](https://github.com/harikrishnanv1311/Web-Tech-2/tree/master/demo)
 
 ### Powerpoint Presentation can be found in the "PPT" directory.
-#### Or click here -> https://github.com/harikrishnanv1311/Web-Tech-2/blob/master/PPT/WT-II%20Lab%20Project%20Template.pptx  &nbsp;and then click on "view raw".
+#### Or click here -> [PPT](https://github.com/harikrishnanv1311/Web-Tech-2/blob/master/PPT/WT-II%20Lab%20Project%20Template.pptx)  &nbsp;and then click on "view raw".
 #### &nbsp;&nbsp; You can also find the PPT in PDF format in the above link.
-<a src='#'>link</a>
