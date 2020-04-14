@@ -33,4 +33,4 @@ through Flask to get the results and return it back to the Browser(Client).
 ### Powerpoint Presentation can be found in the "PPT" directory.
 #### &nbsp;&nbsp;Or click here -> [PPT](https://github.com/harikrishnanv1311/Web-Tech-2/blob/master/PPT/WT-II%20Lab%20Project%20Template.pptx)  &nbsp;and then click on "view raw".
 #### &nbsp;&nbsp; You can also find the PPT in PDF format in the below link:
-#### &nbsp;&nbsp;Click here -> [PDF](https://github.com/harikrishnanv1311/Web-Tech-2/blob/master/PPT/WT-II%20Lab%20Project%20Template.pdf)
+#### &nbsp;&nbsp; Click here -> [PDF](https://github.com/harikrishnanv1311/Web-Tech-2/blob/master/PPT/WT-II%20Lab%20Project%20Template.pdf)
