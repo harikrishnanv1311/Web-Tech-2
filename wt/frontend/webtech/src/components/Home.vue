@@ -31,8 +31,8 @@
           </ul>
         </form>
         <p v-if="bool"> These are the papers available! </p><br>
-        <button class="btn btn-primary" v-if="showButton1" v-on:click.prevent="fetchYear">Get Year Stats</button>
-        <button class="btn btn-primary" v-if="showButton2" v-on:click.prevent="fetchAuthor">Get Author Stats</button>
+        <button class="btn btn-primary" v-if="showButton1" v-on:click="fetchYear">Get Year Stats</button>
+        <button class="btn btn-primary" v-if="showButton2" v-on:click="fetchAuthor">Get Author Stats</button>
 
         <img id="imgSrc1" v-if="showImg1" style="margin:30px" v-bind:src="imgSrc1" alt="Loading ..."></img>
         <img id="imgSrc2" v-if="showImg2" style="margin:30px" v-bind:src="imgSrc2" alt="Loading ..."></img>
@@ -90,16 +90,20 @@ export default {
         console.log(this.rec.length);
         const baseURI = 'http://127.0.0.1:8000/getRecommendation/'+this.rec.replace(" ","-");
         console.log(baseURI);
-        axios.get(baseURI).then(result => {
-          this.papers=result.data;
-          // this.papers=result.data.name+"\n"+result.data.author"\n"+result.data.links;
-          console.log(this.papers);
-          this.showRec=true;
-          this.bool=true;
-          this.showButton1=true;
-          this.showButton2=true;
-        })
-      }
+        axios.get(baseURI,{
+            headers:{
+              'Cache-Control':'no-cache'
+            }
+          }).then(result => {
+            this.papers=result.data;
+            // this.papers=result.data.name+"\n"+result.data.author"\n"+result.data.links;
+            console.log(this.papers);
+            this.showRec=true;
+            this.bool=true;
+            this.showButton1=true;
+            this.showButton2=true;
+          })
+        }
     },
 
     fetchYear: function(){
