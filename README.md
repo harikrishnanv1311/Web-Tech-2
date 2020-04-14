@@ -27,7 +27,7 @@ We use submission throttling to fetch the results after the user types any chara
 through Flask to get the results and return it back to the Browser(Client).
 <br>
 
-### Demonstration examples can be found in the "Demo" directory.
+### Demonstration examples can be found in the "demo" directory.
 #### &nbsp;&nbsp; Or click here -> https://github.com/harikrishnanv1311/Web-Tech-2/tree/master/demo
 
 ### Powerpoint Presentation can be found in the "PPT" directory.
