@@ -31,4 +31,4 @@ through Flask to get the results and return it back to the Browser(Client).
 #### &nbsp;&nbsp; Or click here -> https://github.com/harikrishnanv1311/Web-Tech-2/tree/master/demo
 
 ### Powerpoint Presentation can be found in the "PPT" directory.
-#### &nbsp;&nbsp; Or click here -> https://github.com/harikrishnanv1311/Web-Tech-2/tree/master/PPT  and then click on "view raw".
+#### &nbsp;&nbsp; Or click here -> https://github.com/harikrishnanv1311/Web-Tech-2/tree/master/PPT  &nbsp;and then click on "view raw".
