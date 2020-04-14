@@ -2,6 +2,7 @@ from flask import Flask,render_template,jsonify,request,abort,Response
 from flask_cors import CORS
 from PIL import Image
 from flask import send_file
+from flask import make_response
 import ast
 import json
 import pprint
@@ -16,6 +17,7 @@ cors=CORS(app, resources={
     r"/*":{
         "origins": "*"
     }
+    
 })
 
 @app.route("/")
@@ -50,8 +52,8 @@ def sendRecommendation(topic):
     # # for i in stdout:
     # #     title = i[0]
     # #     author
-    print(data)
-    return Response(json.dumps(data), mimetype='text/json')
+    #print(data)
+    return Response(json.dumps(data), mimetype='text/json',headers={'Cache-Control':'no-cache'})
     # # output = subprocess.check_output(['model.py',topic])
     # # print(output)
     # # return "lol"
@@ -64,7 +66,10 @@ def sendYearHistogram():
     
     # return Response(url, mimetype='text/html')
     # return Response(img, mimetype='image/png')
-    return send_file("year.png", mimetype='image/png')
+    response= make_response(send_file("year.png", mimetype='image/png'))
+    response.headers['Cache-Control'] = 'no-cache'
+    print(type(response))
+    return response
 
 @app.route("/getHistogram/author", methods=["GET"])
 def sendAuthorHistogram():
@@ -74,7 +79,10 @@ def sendAuthorHistogram():
     
     # return Response(url, mimetype='text/html')
     # return Response(img, mimetype='image/png')
-    return send_file("author.png", mimetype='image/png')
+    response= make_response(send_file("author.png", mimetype='image/png'))
+    response.headers['Cache-Control'] = 'no-cache'
+    print(type(response))
+    return response
 
 
 
