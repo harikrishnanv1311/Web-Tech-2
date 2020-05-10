@@ -17,9 +17,13 @@
             <span class="sr-only">Loading...</span>
           </div>
           <ul style="text-align:center">
+              
               <li v-if="showRec" v-for="(p,index) in papers" :key="p.name">
                 <div class="container">
-                  <div class="card text-center" style="text-align:center; width:100%; ">
+                  <h2 class="jumbotron display-8" v-if="p.render_def_statement == 'default'"> Couldn't Find Recommendation for the given topic, but here are a few papers that you might like: </h2>
+                  <h2 class="jumbotron display-8" v-if="p.render_def_statement == 'whitespace'"> Please don't enter whitespaces, tabs etc, but here are a few papers that you might like: </h2>
+                  <h2 class="jumbotron display-8" v-if="p.render_def_statement == 'special'"> Please don't enter any special characters or numbers, but here are a few papers that you might like: </h2>
+                  <div v-if="p.card_render == 'true'" class="card text-center" style="text-align:center; width:100%; ">
                     <div class="card-body">
                       <h1 class="card-title"><b>{{p.name}}</b></h1>
                       <h6 class="card-subtitle mb-2 text-muted">{{p.author}}</h6>
@@ -108,7 +112,7 @@ export default {
       if(this.rec.length>0){  
         this.loading=true;
         console.log(this.rec.length);
-        const baseURI = 'http://127.0.0.1:8000/getRecommendation/'+this.rec.replace(" ","-");
+        const baseURI = 'http://127.0.0.1:8000/getRecommendation/'+this.rec.split(' ').join('-');
         console.log(baseURI);
         setTimeout(() => {
               axios.get(baseURI)

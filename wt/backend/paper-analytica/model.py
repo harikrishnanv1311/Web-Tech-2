@@ -177,7 +177,7 @@ def model(search_query, data_dir="./data/"):
         # temp=ast.literal_eval(l[2])
         # print(temp[1],type(temp[1]))
         #justNames.append(json.loads(l[1]))
-    print(justNames)
+    # print(justNames)
     
     with open('recommendation.json','w') as outfile:
         json.dump(justNames,outfile)
