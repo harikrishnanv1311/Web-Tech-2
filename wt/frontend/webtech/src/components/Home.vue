@@ -18,7 +18,7 @@
           </div>
           <ul style="text-align:center">
               
-              <li v-if="showRec" v-for="(p,index) in papers" :key="p.name">
+              <li id="recomms" v-if="showRec" v-for="(p,index) in papers" :key="p.name">
                 <div class="container">
                   <h2 class="jumbotron display-8" v-if="p.render_def_statement == 'default'"> Couldn't Find Recommendation for the given topic, but here are a few papers that you might like: </h2>
                   <h2 class="jumbotron display-8" v-if="p.render_def_statement == 'whitespace'"> Please don't enter whitespaces, tabs etc, but here are a few papers that you might like: </h2>
@@ -27,7 +27,7 @@
                     <div class="card-body">
                       <h1 class="card-title"><b>{{p.name}}</b></h1>
                       <h6 class="card-subtitle mb-2 text-muted">{{p.author}}</h6>
-                      <p class="card-text"><a target="_blank" class="btn btn-secondary space" v-bind:href="p.link_html">HTML</a> | <a target="_blank" class="btn btn-secondary space"  v-bind:href="p.link_pdf">PDF</a></p>
+                      <p class="card-text"><a target="_blank" id="html_link" class="btn btn-secondary space" v-bind:href="p.link_html">HTML</a> | <a target="_blank" id="pdf_link" class="btn btn-secondary space"  v-bind:href="p.link_pdf">PDF</a></p>
                       <!-- <p class="card-text">HTML: <a v-bind:href="p.link_html">{{p.link_html}}</a><br>PDF: <a v-bind:href="p.link_pdf">{{p.link_pdf}}</a></p>  -->
                     </div>
                   </div>
@@ -36,8 +36,8 @@
           </ul>
         </form>
         <p v-if="bool"> These are the papers available! </p><br>
-        <button class="btn btn-primary" style="border:20px;margin:20px;" v-if="showButton1" v-on:click="fetchYear">Get Year Stats</button>
-        <button class="btn btn-primary" style="border:20px;margin:20px;" v-if="showButton2" v-on:click="fetchAuthor">Get Author Stats</button>
+        <button class="btn btn-primary" id="yearStat" style="border:20px;margin:20px;" v-if="showButton1" v-on:click="fetchYear">Get Year Stats</button>
+        <button class="btn btn-primary" id="authorStat" style="border:20px;margin:20px;" v-if="showButton2" v-on:click="fetchAuthor">Get Author Stats</button>
         <br>
         <div class="container">
           <img id="imgSrc1" v-if="showImg1" style="margin:30px" v-bind:src="imgSrc1" alt="Loading ...">
@@ -109,7 +109,7 @@ export default {
       this.imgSrc1="";
       this.imgSrc2="";
       
-      if(this.rec.length>0){  
+      if(this.rec.length>5){  
         this.loading=true;
         console.log(this.rec.length);
         const baseURI = 'http://127.0.0.1:8000/getRecommendation/'+this.rec.split(' ').join('-');
